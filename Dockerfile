@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 
 ADD package.json yarn.lock /usr/src/app/
 
-RUN yarn install --non-interactive --frozen-lockfile
+RUN yarn install
 
 COPY . /usr/src/app
 

@@ -1,11 +1,11 @@
 {
-  "name": "busy-ipfs",
+  "name": "weipfs",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node ./src/index.js",
-    "deploy": "DEBUG='busy-ipfs' pm2 start --no-daemon --update-env ./src/index.js"
+    "deploy": "DEBUG='weipfs' pm2 start --no-daemon --update-env ./src/index.js"
   },
   "devDependencies": {
     "eslint": "^4.18.2"
