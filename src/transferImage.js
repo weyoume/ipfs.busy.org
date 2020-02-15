@@ -24,11 +24,14 @@ async function transferImage(file) {
     return await readFileAsync(outputFile);
   }
 
-  return await gm(file.path)
+  const imageBuffer = await gm(file.path)
     .autoOrient()
     .resize(MAX_IMAGE_DIMENSION, MAX_IMAGE_DIMENSION, '>')
     .setFormat(getOutputFormat(file.type))
-    .toBufferAsync();
+    .toBufferAsync()
+    .catch( err => { console.error('err', err)});
+
+  return imageBuffer;
 }
 
 module.exports = transferImage;
