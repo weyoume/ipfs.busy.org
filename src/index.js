@@ -53,17 +53,17 @@ app.post('/upload', multipartMiddleware, async (req, res) => {
   }
 });
 
-const config = await ipfs.config.get()
+const config = ipfs.config.get()
   .then( res => res.json())
   .then( res => { console.info( "IPFS Node found with config: ", res ) } )
   .catch( err => { console.error('err', err)});
 
-const swarm = await ipfs.swarm.peers()
+const swarm = ipfs.swarm.peers()
   .then( res => res.json())
   .then( res => { console.info( "Connected to peers: ", res ) } )
   .catch( err => { console.error('err', err)});
 
-const readme = await ipfs.cat("QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv/readme")
+const readme = ipfs.cat("QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv/readme")
   .then( res => res.json())
   .then( res => { console.info( res ) } )
   .catch( err => { console.error('err', err)});
